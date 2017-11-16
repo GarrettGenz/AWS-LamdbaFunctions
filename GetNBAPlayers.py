@@ -1,6 +1,11 @@
 import config
 
 def lambda_handler(event, context):
-    config.connect_to_db()
+    query = "SELECT * FROM players"
 
-lambda_handler(1,1)
+    conn = config.make_conn()
+
+    result = config.fetch_data(conn, query)
+    conn.close()
+
+    return result

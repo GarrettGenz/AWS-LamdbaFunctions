@@ -8,4 +8,6 @@ def lambda_handler(event, context):
     result = config.fetch_data(conn, query)
     conn.close()
 
-    return result
+    print result
+
+lambda_handler(1, 1)
